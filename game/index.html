@@ -20,9 +20,17 @@
 
   // ******** START CODING ON THE NEXT LINE ********
 
+var body = new THREE.SphereGeometry(100);
+var cover = new THREE.MeshNormalMaterial(flat);
+var avatar = new THREE.Mesh(body,cover);
+    
+scene.add(avatar);
+    
+    var hand = new THREE.SphereGeometry(50);
+    
+    var rightHand = new THREE.Mesh(hand,cover);
 
 
   // Now, show what the camera sees on the screen:
   renderer.render(scene, camera);
-});
 </script>

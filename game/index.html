@@ -5,7 +5,11 @@
   var scene = new THREE.Scene();
   var flat = {flatShading: true};
   var light = new THREE.AmbientLight('white', 0.8);
+    
   scene.add(light);
+    var point = new THREE.PointLight( 'white', 0.5 );
+point.position.set( 50, 80, 200 );
+scene.add( point );
 
   // The "camera" is what sees the stuff:
   var aspectRatio = window.innerWidth / window.innerHeight;
@@ -20,34 +24,36 @@
 
   // ******** START CODING ON THE NEXT LINE ********
 
-var body = new THREE.SphereGeometry(100);
+var body = new THREE.SphereGeometry(100,100,100);
 var cover = new THREE.MeshNormalMaterial(flat);
-var avatar = new THREE.Mesh(body,cover);
+    var cover2 = new THREE.MeshPhongMaterial({color: 0x00CCFF });
+    var cover3 = new THREE.MeshPhongMaterial({color: 0xFFCC99 });
+var avatar = new THREE.Mesh(body,cover2);
     
 scene.add(avatar);
     
-    var hand = new THREE.SphereGeometry(50);
+    var hand = new THREE.SphereGeometry(50,50,50);
     
-    var rightHand = new THREE.Mesh(hand,cover);
+    var rightHand = new THREE.Mesh(hand,cover3);
     rightHand.position.set(-150,0,0);
     scene.add(rightHand);
     
-    var leftHand = new THREE.Mesh(hand,cover);
+    var leftHand = new THREE.Mesh(hand,cover3);
     leftHand.position.set(150,0,0);
     scene.add(leftHand);
     
-    var foot = new THREE.SphereGeometry(50);
+    var foot = new THREE.SphereGeometry(50,50,50);
     
-    var rightFoot = new THREE.Mesh(foot,cover);
+    var rightFoot = new THREE.Mesh(foot,cover3);
     rightFoot.position.set(-75,-125,0);
     scene.add(rightFoot);
     
-    var leftFoot = new THREE.Mesh(foot,cover);
+    var leftFoot = new THREE.Mesh(foot,cover3);
     leftFoot.position.set(75,-125,0);
     scene.add(leftFoot);
     
-    var cabeza = new THREE.SphereGeometry(65);
-    var cabeza_cover = new THREE.Mesh(cabeza,cover);
+    var cabeza = new THREE.SphereGeometry(65,65,65);
+    var cabeza_cover = new THREE.Mesh(cabeza,cover3);
     cabeza_cover.position.set(0,150,0);
     scene.add(cabeza_cover);
 

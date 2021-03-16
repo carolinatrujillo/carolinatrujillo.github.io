@@ -36,28 +36,34 @@ scene.add(avatar);
     
     var rightHand = new THREE.Mesh(hand,cover3);
     rightHand.position.set(-150,0,0);
-    scene.add(rightHand);
+    avatar.add(rightHand);
     
     var leftHand = new THREE.Mesh(hand,cover3);
     leftHand.position.set(150,0,0);
-    scene.add(leftHand);
+    avatar.add(leftHand);
     
     var foot = new THREE.SphereGeometry(50,50,50);
     
     var rightFoot = new THREE.Mesh(foot,cover3);
     rightFoot.position.set(-75,-125,0);
-    scene.add(rightFoot);
+    avatar.add(rightFoot);
     
     var leftFoot = new THREE.Mesh(foot,cover3);
     leftFoot.position.set(75,-125,0);
-    scene.add(leftFoot);
+    avatar.add(leftFoot);
     
     var cabeza = new THREE.SphereGeometry(65,65,65);
     var cabeza_cover = new THREE.Mesh(cabeza,cover3);
     cabeza_cover.position.set(0,150,0);
-    scene.add(cabeza_cover);
+    avatar.add(cabeza_cover);
 
 
   // Now, show what the camera sees on the screen:
-  renderer.render(scene, camera);
+    
+    function animate() {
+        requestAnimationFrame(animate);
+        avatar.rotation.z = avatar.rotation.z + 0.05;
+        renderer.render(scene,camera);
+    }
+    animate();
 </script>

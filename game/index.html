@@ -62,11 +62,23 @@ scene.add(avatar);
         //alert(e.code);
         let codigo = e.code;
         
-        if (codigo == 'KeyA') {
+        if (codigo == 'KeyE') {
             avatar.position.z += 5;
         }
         if (codigo == 'KeyQ') {
             avatar.position.z -=5;
+        }
+        if (codigo == 'KeyA') {
+            avatar.position.x -= 5;
+        }
+        if (codigo == 'KeyD') {
+            avatar.position.x += 5;
+        }
+        if (codigo == 'KeyW') {
+            avatar.position.y += 5;
+        }
+        if (codigo == 'KeyS') {
+            avatar.position.y -= 5;
         }
     }
 

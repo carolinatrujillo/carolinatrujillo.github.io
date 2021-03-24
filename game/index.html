@@ -57,6 +57,18 @@ scene.add(avatar);
     cabeza_cover.position.set(0,150,0);
     avatar.add(cabeza_cover);
 
+    document.addEventListener('keydown', teclaApretada);
+    function teclaApretada(e) {
+        //alert(e.code);
+        let codigo = e.code;
+        
+        if (codigo == 'KeyA') {
+            avatar.position.z += 5;
+        }
+        if (codigo == 'KeyQ') {
+            avatar.position.z -=5;
+        }
+    }
 
   // Now, show what the camera sees on the screen:
     

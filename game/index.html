@@ -58,6 +58,7 @@ scene.add(avatar);
     avatar.add(cabeza_cover);
     
     let isCartWheeling = true;
+    let isCartWheeling2 = false;
 
     document.addEventListener('keydown', teclaApretada);
     function teclaApretada(e) {
@@ -85,6 +86,9 @@ scene.add(avatar);
         if (codigo == 'KeyC') {
             isCartWheeling = !isCartWheeling;
         }
+        if (codigo == 'KeyF') {
+            isCartWheeling2 = !isCartWheeling2;
+        }
     }
 
   // Now, show what the camera sees on the screen:
@@ -94,6 +98,9 @@ scene.add(avatar);
         
         if (isCartWheeling) {
             avatar.rotation.z = avatar.rotation.z + 0.05;
+        }
+        if (isCartWheeling2) {
+            avatar.rotation.x = avatar.rotation.x + 0.05;
         }
         
         renderer.render(scene,camera);

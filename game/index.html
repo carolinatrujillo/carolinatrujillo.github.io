@@ -57,6 +57,24 @@ scene.add(avatar);
     cabeza_cover.position.set(0,150,0);
     avatar.add(cabeza_cover);
     
+    function crearArbolEn(x,y) {
+        var tronco = new THREE.CylinderGeometry(50,50,200);
+        var textura = new THREE.MeshBasicMaterial({color:"sienna"});
+        var tronco_sienna = new THREE.Mesh(tronco, textura);
+        
+        var copa = new THREE.SphereGeometry(150):
+        var textura_copa = new THREE.MeshBasicMaterial({color:"forestgreen"});
+        var copa_textura = new THREE.Mesh(copa, textura_copa);
+    }
+    
+    function crearArboles(cantidad) {
+        for(var i= 1; i<cantidad; i++) {
+            crearArbolEn((Math.random()*5000)-2500,-Math.random()*5000);
+        }
+    }
+        
+       crearArboles(100);
+    
     let isCartWheeling = true;
     let isCartWheeling2 = false;
 

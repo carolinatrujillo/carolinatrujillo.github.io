@@ -14,7 +14,8 @@ scene.add( point );
   // The "camera" is what sees the stuff:
   var aspectRatio = window.innerWidth / window.innerHeight;
   var camera = new THREE.PerspectiveCamera(75, aspectRatio, 1, 10000);
-  camera.position.z = 500;
+  camera.position.z = 1000;
+  camera.position.y = 500
   scene.add(camera);
 
   // The "renderer" draws what the camera sees onto the screen:
@@ -57,6 +58,8 @@ scene.add(avatar);
     cabeza_cover.position.set(0,150,0);
     avatar.add(cabeza_cover);
     
+    camera.lookAt(avatar.position);
+    
     function crearArbol(x,z) {
         var tronco = new THREE.CylinderGeometry(50,50,200);
         var textura = new THREE.MeshBasicMaterial({color:'sienna'});
@@ -83,17 +86,31 @@ scene.add(avatar);
         }
     }
         
-       crearArboles(400);
+       //crearArboles(400);
     
-    function crearCampo(cantidad) {
-        var separaciónlateral = 300;
-        var separaciónfrontal = 300;
-        for(var i=1; i<cantidad; i++) {
-            var x = Math.random()*separaciónlateral;
-            var z = Math.random()*separaziónfrontal;
+    function crearFilaArboles(z, minimo_x, maximo_x, paso_x) {
+        var minimo_x = -5000;
+        var maximo_x = 5000;
+        var paso_x = 1000;
+        for(var x=minimo_x; x<maximo_x; x=x+paso_x) {
+            crearArbol(x,z);
         }
         
     }
+    
+    function crearCampoArboles(minimo_x, minimo_z, maximo_x, maximo_z, paso) {
+        var paso = 1000;
+        var minimo_z = -5000;
+        var maximo_z = 5000;
+        for(var z=minimo_z; z<maximo_z; z=z+paso) {
+            crearFilaArboles(z, minimo_x, maximo_x, paso);
+            
+        }
+    }
+    
+    //crearFilaArboles(0,-5000,5000,500);
+    crearCampoArboles(-5000,-5000,5000,5000,900);
+    
     
     let isCartWheeling = true;
     let isCartWheeling2 = false;

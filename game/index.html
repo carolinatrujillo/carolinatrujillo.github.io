@@ -33,6 +33,12 @@ var avatar = new THREE.Mesh(body,cover2);
     
 scene.add(avatar);
     
+    var maker = new THREE.Object3D();
+    scene.add(maker);
+    maker.add(avatar);
+    maker.add(camera);
+    
+    
     var hand = new THREE.SphereGeometry(50,50,50);
     
     var rightHand = new THREE.Mesh(hand,cover3);

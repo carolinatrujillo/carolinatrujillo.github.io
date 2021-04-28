@@ -132,7 +132,8 @@ var avatar = new THREE.Mesh(body,cover2);
             marcador.position.z += 5;
         }
         if (codigo == 'KeyQ') {
-            marcador.position.z -=5;
+            avanzar(marcador.rotation.y);
+            //marcador.position.z -=5;
         }
         if (codigo == 'KeyA') {
             marcador.position.x -= 5;
@@ -152,6 +153,18 @@ var avatar = new THREE.Mesh(body,cover2);
         if (codigo == 'KeyF') {
             isCartWheeling2 = !isCartWheeling2;
         }
+        if (codigo == 'ArrowRight') {
+            //console.log("Derecha");
+            marcador.rotation.y += 0.01;
+        }
+           if (codigo == 'ArrowLeft') {
+            //console.log("Izquierda");
+            marcador.rotation.y -= 0.01;
+        }
+    }
+    
+    function avanzar(dirección) {
+        console.log("Dirección:" + dirección);
     }
 
   // Now, show what the camera sees on the screen:

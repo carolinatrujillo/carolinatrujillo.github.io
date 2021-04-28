@@ -129,7 +129,8 @@ var avatar = new THREE.Mesh(body,cover2);
         let codigo = e.code;
         
         if (codigo == 'KeyE') {
-            marcador.position.z += 5;
+            //marcador.position.z += 5;
+            avanzar(marcador.rotation.y+Math.PI);
         }
         if (codigo == 'KeyQ') {
             avanzar(marcador.rotation.y);
@@ -143,9 +144,11 @@ var avatar = new THREE.Mesh(body,cover2);
         }
         if (codigo == 'KeyW') {
             marcador.position.y += 5;
+            marcador.rotation.y = marcador.rotation.y % (2*Math.PI);
         }
         if (codigo == 'KeyS') {
             marcador.position.y -= 5;
+            marcador.rotation.y = marcador.rotation.y % (2*Math.PI);
         }
         if (codigo == 'KeyC') {
             isCartWheeling = !isCartWheeling;
@@ -163,9 +166,17 @@ var avatar = new THREE.Mesh(body,cover2);
         }
     }
     
-    function avanzar(dirección) {
-        console.log("Dirección:" + dirección);
+    function avanzar(direccion) {
+        direccion += Math.PI/2;
+        console.log("Radianes:" + (direccion));
+        console.log("Grados:" + direccion*180/Math.PI);
+        console.log("Sen(direccion):" + Math.sin(direccion));
+        console.log("Cos(direccion):" + Math.cos(direccion));
+        
+        marcador.position.z -= 20*Math.sin(direccion);
+        marcador.position.x -= 20*Math.cos(direccion);
     }
+    
 
   // Now, show what the camera sees on the screen:
     

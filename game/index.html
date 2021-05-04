@@ -150,10 +150,12 @@ var avatar = new THREE.Mesh(body,cover2);
             //marcador.position.z -=5;
         }
         if (codigo == 'KeyA') {
-            marcador.position.x -= 5;
+            //marcador.position.x -= 5;
+            avanzar(Math.PI);
         }
         if (codigo == 'KeyD') {
-            marcador.position.x += 5;
+            //marcador.position.x += 5;
+            avanzar(0);
         }
         if (codigo == 'KeyW') {
             marcador.position.y += 5;
